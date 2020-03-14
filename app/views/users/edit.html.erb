@@ -1,0 +1,18 @@
+<h1>User info</h1>
+<%= form_for (@user) do |f| %>
+<% if @user.errors.any? %>
+        <%= @user.errors.count %>件のerrorが発生しました
+        <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+
+<h2>Name</h2>
+<div class="input"><%= f.text_field :name %></div></div>
+<h2>image</h2>
+<%= f.attachment_field :profile_image %>
+
+<h2>Introduction</h2>
+<div class="input"><%= f.text_field :introduction %></div>
+<%= f.submit 'Update User' %>
+<% end %>

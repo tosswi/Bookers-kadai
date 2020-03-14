@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <header>
     <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <div id="slidemenu">
+    <H3>Bookers</H3>
+  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+    <% if user_signed_in? %>
+      <li class="">
+        <%= link_to 'Home', user_path(current_user) %>
+      </li>
+      <li class="">
+          <%= link_to 'Users', users_path %>
+      </li>
+      <li class="">
+        <%= link_to 'Books', books_path %>
+      </li>
+       <li class="">
+         <%= link_to "logout", destroy_user_session_path, method: :delete%>
+      </li>
+    <% else %>
+      <li class="">
+        <%= link_to "Home", root_path %>
+      </li>
+      <li class="">
+        <%= link_to "About", home_about_path %>
+      </li>
+      <li class="">
+        <%= link_to "Sign Up", new_user_registration_path %>
+      </li>
+      <li class="">
+             <%= link_to "Login", new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+</header>
 
   <body>
     <%= yield %>

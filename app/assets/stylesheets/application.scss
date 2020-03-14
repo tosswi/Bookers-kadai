@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";  /*ここを追加*/
+    @import "bootstrap";  
 
 
 th {
@@ -54,7 +56,9 @@ p{
     background-color: red;
     display: table;
 }
-
+img {
+    vertical-align: middle;
+}
 
 div.actions {
     margin-bottom: 10px;
